@@ -23,14 +23,14 @@ $estudiantes = ControllerStudent::listaEstudiantes();
                 
                     foreach($estudiantes as $estudiante){
                         $rutaEliminar="index.php?codigo=".$estudiante->getCodigo();
-                        $rutaEditar="vistas/editar.php?codigo".$estudiante->getCodigo();
+                        $parametroEditar="codigo=".$estudiante->getCodigo();
                         echo "<tr>
                         <td>". $estudiante->getCodigo() ."</td>
                         <td>". $estudiante->getDni() ."</td>
                                 <td>". $estudiante->getNombre() ." </td>
                                 <td>". $estudiante->getApellido() ."</td>
                                 <td>
-                                    <a href='$rutaEditar' class='btn bg-warning form-control'>Editar</a>
+                                    <a href='vistas/editar.php?$parametroEditar' class='btn bg-warning form-control'>Editar</a>
                                 </td>
                                 <td>
                                 <a href='$rutaEliminar' class='btn bg-danger form-control'>Eliminar</a>

@@ -18,6 +18,8 @@
             <input type="text" placeholder="apellido" class="form-control" name="apellido" id="apellido" required/>
         </div>
 
+        <input type="hidden" name="insertar" value="insertar"/>
+
         <div class="mb-4">
             <input type="submit" class=" form-control btn-dark" >
         </div>

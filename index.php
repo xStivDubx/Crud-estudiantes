@@ -10,7 +10,15 @@ if($_POST){
   $nombre= $_POST['nombre'];
   $apellido= $_POST['apellido'];
 
-  ControllerStudent::insertar($codigo,$dni,$nombre,$apellido);
+  if(isset($_POST['insertar'])){
+    ControllerStudent::insertar($codigo,$dni,$nombre,$apellido);
+  }
+
+
+  if(isset($_POST['actualizar'])){
+    //echo "viene update";
+    ControllerStudent::update($codigo,$dni,$nombre,$apellido);
+  }
 
   header("Location: index.php");
   exit;

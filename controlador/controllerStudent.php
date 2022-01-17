@@ -45,6 +45,33 @@ class ControllerStudent{
         $conn=null;
     }
 
+    public static function getStudent($codigo){
+        $conexion = new Conexion();
+        $conn = $conexion->conectar();
+
+        $prepare= mysqli_prepare($conn,"SELECT * FROM estudiante WHERE codigo= ?");
+        $prepare->bind_param("s",$codigo);
+
+        $prepare->execute();
+
+        $result= $prepare->get_result();
+
+        return $result->fetch_object(Estudiante::class);
+    }
+
+    public static function update($codigo,$dni,$nombre,$apellido){
+
+        $conexion = new Conexion();
+        $conn = $conexion->conectar();
+
+        $prepare= mysqli_prepare($conn,"UPDATE estudiante set dni=?,nombre=?,apellido=? WHERE codigo=?");
+        $prepare->bind_param("ssss",$dni,$nombre,$apellido,$codigo);
+
+        $prepare->execute();
+        $conn=null;
+
+    }
+
 }
 
 
